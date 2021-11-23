@@ -2,35 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Wpf_Lab_13
+namespace _13._1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    /*13*/
-    //public class Font13
-    //{
-    //    public string FontName13 { get; set; }
-    //    public int FontSize13 { get; set; }
-    //}
     public partial class MainWindow : Window
     {
-          
-        /*9*/
         public MainWindow()
         {
             InitializeComponent();
@@ -40,29 +23,18 @@ namespace Wpf_Lab_13
             styleBox.SelectionChanged += ThemeChange;
             styleBox.SelectedIndex = 0;
         }
-        public class Font13
-        {
-            public List<string> FontName13 { get; set; }
-            public List<string> FontSize13 { get; set; }
-            public Font13()
-            {
-                FontName13 = new List<string> { "Arial", "Times New Roman", "Verdana" };
-                FontSize13 = new List<string> { "12", "14", "16" };
-            }
-        }
         private void ThemeChange(object sender, SelectionChangedEventArgs e)
         {
             int styleIndex = styleBox.SelectedIndex;
             Uri uri = new Uri("WB.xaml", UriKind.Relative);
-            if (styleIndex==1)
+            if (styleIndex == 1)
             {
-                uri=new Uri("BW.xaml", UriKind.Relative);
+                uri = new Uri("BW.xaml", UriKind.Relative);
             }
             ResourceDictionary resource1 = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resource1);
         }
-        /*1------------------*/
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string fontName = ((sender as ComboBox).SelectedItem as String);
@@ -94,7 +66,7 @@ namespace Wpf_Lab_13
         {
             if (Vindou != null)
             {
-                Vindou.FontStyle= FontStyles.Italic;
+                Vindou.FontStyle = FontStyles.Italic;
             }
         }
 
@@ -146,30 +118,18 @@ namespace Wpf_Lab_13
         {
             Application.Current.Shutdown();
         }
-                /*-----------------------------*/
-        //private void MenuItem_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog openFileDialog = new OpenFileDialog();
-        //    openFileDialog.Filter = "Text files (*txt)|*txt";
-        //    if (openFileDialog.ShowDialog() == true)
-        //    {
-        //        Vindou.Text = File.ReadAllText(openFileDialog.FileName);
-        //    }
-        //}
-
-        //private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    SaveFileDialog saveFileDialog = new SaveFileDialog();
-        //    saveFileDialog.Filter = "Text files (*txt)|*txt";
-        //    if (saveFileDialog.ShowDialog() == true)
-        //    {
-        //        File.WriteAllText(saveFileDialog.FileName, Vindou.Text);
-        //    }
-        //}
-
-        //private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        //{
-        //    Application.Current.Shutdown();
-        //}
     }
+
+    public class Font13
+    {
+
+        public List<string> FontName13 { get; set; }
+        //public List<string> FontSize13 { get; set; }
+        public Font13()
+        {
+            FontName13 = new List<string> { "Arial", "Times New Roman", "Verdana" };
+            //FontSize13 = new List<string> { "12", "14", "16" };
+        }
+    }
+
 }
